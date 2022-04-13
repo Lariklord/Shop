@@ -1,0 +1,10 @@
+﻿@model HomeViewModel
+<h1>Лучшие жидкости</h1>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Tovar item in Model.fav)
+        {
+            Html.RenderPartial("All", item);
+        }
+    }
+</div>

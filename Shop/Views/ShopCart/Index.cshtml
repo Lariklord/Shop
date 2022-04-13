@@ -1,0 +1,21 @@
+﻿@model ShopCartViewModel
+<div class="container">
+    @foreach (var el in Model.shopcart.list)
+    {
+        <div class="alert alert-warning mt-3">
+            <b>Жидкость:</b>@el.tovar.name<br />
+            <b>Цена:</b>@el.tovar.price.ToString("c")<br />
+            <b><a class="btn btn-warning" asp-controller="Shopcart" asp-action="delete" asp-route-id="@el.tovar.id">Удалить</a></b>
+        </div>
+    }
+    <hr />
+    @if (Model.shopcart.list.Count != 0)
+    {
+        <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    }
+    else
+    {
+        <b><font size="6">Корзина пустая</font></b>
+    }
+
+</div>
